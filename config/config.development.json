@@ -1,0 +1,6 @@
+{
+    "PORT":5000,
+    "MONGODB_CONNECTION":"mongodb+srv://supermarket:supermarket@cluster0.cbevakb.mongodb.net/?retryWrites=true&w=majority",
+    "ACCESS_TOKEN": "EXKwGFQsvJkMF}UfjhoknCesMUxxr+zF#.ya!cC4T=GpmA*Z_%",
+    "REFRESH_TOKEN": "?4N~H8#nDuR}Y8zGcrF@ihL?4oCYk!>Kd]yi#1ZDbgncnf8UHQ}heukoBsXBXfP-+N@z!rnuCs#G33b]p.KvPar%yk1,3A*UU%)W"
+}

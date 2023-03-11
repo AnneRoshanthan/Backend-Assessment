@@ -1,0 +1,83 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "User Signup API",
+      "description": "API for user signup",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/user/signup": {
+        "post": {
+          "summary": "Creates a new user account",
+          "description": "This endpoint allows a user to sign up by creating a new account.",
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user",
+              "description": "The user object containing signup details",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User created successfully" },
+            "400": {
+              "description": "Invalid input"
+            }
+          }
+        }
+      },
+      "/user/signin": {
+        "post": {
+          "summary": "Sign in to the user account",
+          "description": "This endpoint allows a user to sign in.",
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user",
+              "description": "The user object containing signup details",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User signin successfully" },
+            "400": {
+              "description": "Invalid input"
+            }
+          }
+        }
+      },
+      "/api/task": {
+        "post": {
+          "summary": "Create the tasks",
+          "description": "This endpoint allows a user to create the task.",
+          "tags": [
+            "task"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "task",
+              "description": "The user object containing tasks details",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "task created successfully" },
+            "400": {
+              "description": "Invalid input"
+            }
+          }
+        }
+      }
+    }
+  }
+  
