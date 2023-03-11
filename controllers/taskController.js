@@ -3,7 +3,6 @@ const Tasks = require('../models/task')
 const userController = {
     ceateTask: async (req, res) => {
         try {
-            console.log('AUTH', req.user.id);
             const { userId, name, description, priority, status } = req.body;
 
             // User is required
@@ -163,7 +162,50 @@ const userController = {
         }
     },
 
-   
+    listAllUserWithTaskCount: async (req, res) => {
+        try {
+            const result = await Tasks.aggregate([
+                {
+                    $group:{
+                        _id:{ 
+                            userId:"$userId",
+                            priority:"$priority"
+                        },
+                        count:{
+                            $sum:1
+                        }
+                    }
+                },
+                {
+                    $group:{
+                        _id:'$_id.userId',
+                        tasks: {
+                            $push:{
+                                priority:"$_id.priority", count:'$count'
+                            }
+                        }
+                    }
+                },{
+                    $lookup:{
+                        from:'users',
+                        localField:'_id',
+                        foreignField:'_id',
+                        as:'user'
+                    }
+                },{
+                    $project:{
+                        _id:0,
+                        name:'$user.fullname',
+                        tasks:1
+                    }
+                }   
+            ])
+                return res.status(200).json(result);
+            
+        } catch (error) {
+            return res.status(500).json({ msg: error.message });
+        }
+    }
 }
 
 module.exports = userController;

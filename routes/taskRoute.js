@@ -19,6 +19,6 @@ router.patch('/update-status/:id',auth,taskController.updateStatus);
 router.get('/find-tasks-by-id',auth,taskController.listAllUserTask);
 
 // list all tasks count by periority level
-// router.get('/all-tasks-admin',taskController.listAllUserWithTaskCount);
+router.get('/all-tasks-admin',taskController.listAllUserWithTaskCount);
 
 module.exports = router;
